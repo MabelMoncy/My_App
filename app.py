@@ -51,6 +51,13 @@ st.title("📄 Algorithm Thinking With Python")
 st.subheader("AI-Powered PDF Question Answering")
 st.markdown("📘About the Subject\n\n 'Algorithm Thinking with Python' is a newly introduced subject in the 2024 KTU B.Tech syllabus under the 2024 scheme. This course is designed to strengthen logical thinking skills while introducing students to the fundamentals of Python programming. It serves as a foundational step toward problem-solving using algorithms in real-world scenarios.\n\n📔 About This App.\n\n This web application is built to help students engage more deeply with the subject by allowing them to ask questions directly from the preloaded official textbook of Algorithm Thinking with Python. The AI-powered system retrieves relevant content from the textbook and generates clear, contextual answers. It's your personal study assistant for better understanding core concepts, code examples, and logic-based problems — all from one place.")
 st.markdown("Ask questions based on our preloaded Text Book of Algorithm thinking with python.")
+st.markdown(
+    """
+    💡 **Tip:** Each question you ask is answered independently based on the textbook content.  
+    To get the most accurate answers, try to ask complete and specific questions.
+    """
+)
+
 
 
 def clean_text(text):
