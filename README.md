@@ -41,3 +41,9 @@ The OpenAI API offers a wide range of powerful capabilities. It’s highly recom
 - Execute the file >> streamlit run app.py
 - If any error is found solve it
 - Your Ai assistant is ready to use.
+
+ # Deployment Status
+ The application is hosted on Render.com, a modern cloud platform that supports full-stack web apps with powerful deployment capabilities. We chose Render for its: Seamless integration with GitHub, Support for Python and Streamlit, Easy management of environment variables (e.g., API keys), Compatibility with required dependencies like chromadb, pypdf, and langchain
+
+# Environment Management
+Sensitive information like the OpenAI API key is securely stored using Render's Environment Variables, ensuring that credentials are never exposed in the source code.
