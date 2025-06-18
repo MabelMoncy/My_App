@@ -163,8 +163,8 @@ def answer_question(query):
 
 # Main flow
 with st.spinner("Loading PDF content and preparing..."):
-    chunks = load_pdf_chunks("ATP_split.pdf")
-    store_chunks_if_pdf_changed(chunks,"ATP_split.pdf")
+    chunks = load_pdf_chunks("pdfs/ATP_split.pdf")
+    store_chunks_if_pdf_changed(chunks,"pdfs/ATP_split.pdf")
 
 user_query = st.text_input("",placeholder="e.g., What is Algorithm Thinking with python?")
 
