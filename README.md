@@ -5,6 +5,7 @@ This app is specially build for KTU 1st year students of 2024 scheme. This web a
 Only edit the Python code and change the UI.
 
 This app is now ready to use and has been successfully deployed online. The app.py file serves as the official source code and foundational structure of the application. All necessary deployment procedures have been completed, and the app is now live and accessible for use.
+- Use the app: https://alpy.onrender.com
 
 AI-generated code is also included in this project. It has been developed primarily as a learning exercise to understand the working of APIs—particularly OpenAI APIs—and their integration. However, the project may still be useful for students interested in learning about coding and API implementation.
 
