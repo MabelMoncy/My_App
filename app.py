@@ -74,7 +74,7 @@ def clean_text(text):
     return "\n".join(cleaned_lines)
 
 # Load and split PDF into chunks
-@st.cache_data
+@st.cache_data(show_spinner=False)
 def load_pdf_chunks(pdf_path):
     reader = PdfReader(pdf_path)
     raw_text = ""
