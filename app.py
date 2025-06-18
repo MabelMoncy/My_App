@@ -34,7 +34,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        background:#aaaaaa;
+        background:white;
         color: Black;
         font-family: Arial;
         font-size: 30px;
