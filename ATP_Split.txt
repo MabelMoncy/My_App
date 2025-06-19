@@ -1,97 +1,237 @@
-[Page 1]
-Contents
-
-il The World of Problem-solving 10
-De 0
-
-~
-
-DAaAnMAA
-
-Algorithmic problem solving with computers
-3.1 The Problem solving 1 process. wee. ... 20
-
-26
-26
-27
-28
-34
-36
-48
-48
-
-Memoryvunit, en
-3.3 Von Neumann architecturg .. 2... 2.0.0.0. 0000200008.2 5
-3.4 Instruction execution]
-
-[Page 2]
-CONTENTS
-
-B.4.1 Instruction format) 58
-
-a-perators 1 Fythowy 75
-5.2.1 Arithmetic Operators 76
-5 pd. 2 Assig ment operato 76
-
-6.3 The math module 92
-
-[Page 3]
-CONTENTS
-
-on
-
-Errors in Python progra:
-
-.2__ Introductio:
-A Traversing astring .. 2... ee 34
-
-[Page 4]
-6 CONTENTS
-
-102 Lit?................ Settee tere ees 147
-0.2.1 Creating listg 2... ee
-
-IL: nm Mathematical set operations on Python setg........
-
-11.4 Dictionaries
-
-11.4.1 Dictionary operations)
-
-[Page 5]
-CONTENTS
-
-1.4.2 Dictionary methods
-
-1.4.3 Dictionary aliasing and copying
-
-11.5 Programming exampley .. 1... 0 0. ee ee
-
-i
-
-lving Computational Problems Using Brute-force Ap-
-
-0.
-Iproach Approach... ew,
-
-3.1.4 Optimizing Brute-force Solutiong ...........0..
-
-[Page 6]
-CONTENTS
-
-13.2 Divide- and- conquer Approach to Problem Solving}
-
-i
-
-lem descrij
-
-em descripti
-
-lem descrij
-
-em descripti
-
-[Page 7]
-CONTENTS 9
+Contents                                                        pages
+ 1 TheWorldofProblem-solving 10
+ 1.1 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+ 1.2 Problem-Solving Strategies . . . . . . . . . . . . . . . . . . . . . 14
+ 1.2.1 Importanceof Understanding Multiple Problem-Solving Strategies . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+ 1.2.2 TrialAndErrorProblem-SolvingStrategy. . . . . . . . . 15
+ 1.2.3 AlgorithmicProblem-SolvingStrategy . . . . . . . . . . . 15
+ 1.2.4 HeuristicProblem-SolvingStrategy. . . . . . . . . . . . . 16
+ 1.2.5 Means-EndsAnalysisProblem-SolvingStrategy. . . . . . 16
+ 1.2.6 Problemdecomposition . . . . . . . . . . . . . . . . . . . 18
+ 1.2.7 OtherProblem-solvingStrategies . . . . . . . . . . . . . . 18
+ 1.3 Algorithmicproblemsolvingwithcomputers . . . . . . . . . . . 20
+ 1.3.1 TheProblemsolvingprocess . . . . . . . . . . . . . . . . 20
+ 1.3.2 Acasestudy-TheDiscriminantcalculator . . . . . . . . 22
+ 1.4 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+ 1.5 Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+ 2 Algorithms,pseudocodes,andflowcharts 26
+ 2.1 Algorithmsandpseudocodes . . . . . . . . . . . . . . . . . . . . 26
+ 2.1.1 Whypseudocodes? . . . . . . . . . . . . . . . . . . . . . . 27
+ 2.1.2 Constructsofapseudocode . . . . . . . . . . . . . . . . . 28
+ 2.2 Flowcharts. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
+ 2.3 Solvedproblems-AlgorithmsandFlowcharts . . . . . . . . . . . 36
+ 2.4 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+ 2.5 Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+ 3 Foundationsofcomputing 51
+ 3.1 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
+ 3.2 Architectureofacomputer . . . . . . . . . . . . . . . . . . . . . 52
+ 3.2.1 Input/outputunit . . . . . . . . . . . . . . . . . . . . . . 52
+ 3.2.2 CentralProcessingUnit . . . . . . . . . . . . . . . . . . . 54
+ 3.2.3 Memoryunit . . . . . . . . . . . . . . . . . . . . . . . . . 55
+ 3.3 VonNeumannarchitecture . . . . . . . . . . . . . . . . . . . . . 57
+ 3.4 Instructionexecution. . . . . . . . . . . . . . . . . . . . . . . . . 58
+ 3.4.1 Instructionformat . . . . . . . . . . . . . . . . . . . . . . 58
+ 3.4.2 Instructionexecutioncycle . . . . . . . . . . . . . . . . . 58
+ 3.5 Programminglanguages . . . . . . . . . . . . . . . . . . . . . . . 59
+ 3.5.1 MachineLanguage . . . . . . . . . . . . . . . . . . . . . . 60
+ 3.5.2 AssemblyLanguage . . . . . . . . . . . . . . . . . . . . . 61
+ 3.5.3 High-levelLanguage . . . . . . . . . . . . . . . . . . . . . 61
+ 3.6 Translatorsoftware . . . . . . . . . . . . . . . . . . . . . . . . . . 61
+ 3.6.1 Assembler . . . . . . . . . . . . . . . . . . . . . . . . . . . 62
+ 3.6.2 Compiler . . . . . . . . . . . . . . . . . . . . . . . . . . . 62
+ 3.6.3 Interpreter . . . . . . . . . . . . . . . . . . . . . . . . . . 62
+ 3.7 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
+ 4 Pythonfundamentals 66
+ 4.1 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 66
+ 4.1.1 HowtorunyourPythoncode? . . . . . . . . . . . . . . . 67
+ 4.1.2 ThePythoninterpreter . . . . . . . . . . . . . . . . . . . 68
+ 4.2 “Onyourmarks.Getset.Go!” . . . . . . . . . . . . . . . . . . . 69
+ 4.3 Characterset . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69
+ 4.4 Constants,variables,andkeywords . . . . . . . . . . . . . . . . . 70
+ 4.5 Datatypes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
+ 4.5.1 Numbers . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+ 4.5.2 Strings. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+ 4.6 Statements . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+ 4.7 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+ 4.8 Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+ 5 Pythonexpressions 75
+ 5.1 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 75
+ 5.2 OperatorsinPython . . . . . . . . . . . . . . . . . . . . . . . . . 75
+ 5.2.1 ArithmeticOperators . . . . . . . . . . . . . . . . . . . . 76
+ 5.2.2 Assignmentoperator . . . . . . . . . . . . . . . . . . . . . 76
+ 5.2.3 ComparisonOperators . . . . . . . . . . . . . . . . . . . . 77
+ 5.2.4 LogicalOperators . . . . . . . . . . . . . . . . . . . . . . 77
+ 5.2.5 Bitwiseoperators . . . . . . . . . . . . . . . . . . . . . . . 78
+ 5.2.6 MembershipOperators. . . . . . . . . . . . . . . . . . . . 81
+ 5.2.7 IdentityOperators . . . . . . . . . . . . . . . . . . . . . . 82
+ 5.2.8 Precedenceandassociativityofoperators . . . . . . . . . 82
+ 5.2.9 Mixed-ModeArithmetic . . . . . . . . . . . . . . . . . . . 84
+ 5.3 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 85
+ 5.4 Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 85
+ 6 Datainputandoutput 88
+ 6.1 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 88
+ 6.1.1 Escapesequences . . . . . . . . . . . . . . . . . . . . . . . 90
+ 6.2 ProgramCommentsandDocstrings . . . . . . . . . . . . . . . . 91
+ 6.3 Themathmodule . . . . . . . . . . . . . . . . . . . . . . . . . . . 92
+ 6.4 ErrorsinPythonprogram. . . . . . . . . . . . . . . . . . . . . . 93
+ 6.4.1 Syntaxerrors . . . . . . . . . . . . . . . . . . . . . . . . . 93
+ 6.4.2 Semanticerrors . . . . . . . . . . . . . . . . . . . . . . . . 94
+ 6.5 Programmingexamples . . . . . . . . . . . . . . . . . . . . . . . 94
+ 6.6 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 96
+ 6.7 Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 97
+ 7 Controlstructures 99
+ 7.1 Adventuregame . . . . . . . . . . . . . . . . . . . . . . . . . . . 99
+ 7.2 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 99
+ 7.3 Selectionstatements . . . . . . . . . . . . . . . . . . . . . . . . . 100
+ 7.3.1 One-wayselectionstatement . . . . . . . . . . . . . . . . 100
+ 7.3.2 Two-wayselectionstatement . . . . . . . . . . . . . . . . 100
+ 7.3.3 Multi-wayselectionstatement. . . . . . . . . . . . . . . . 101
+ 7.4 Repetitionstatementsorloops . . . . . . . . . . . . . . . . . . . 101
+ 7.4.1 Definiteiteration:Theforloop . . . . . . . . . . . . . . 101
+ 7.4.2 Conditional Iteration:Thewhileloop . . . . . . . . . . . 103
+ 7.4.3 Nestedloops . . . . . . . . . . . . . . . . . . . . . . . . . 103
+ 7.4.4 Loopcontrolstatements . . . . . . . . . . . . . . . . . . . 104
+ 7.5 Short-CircuitEvaluation. . . . . . . . . . . . . . . . . . . . . . . 105
+ 7.6 Programmingexamples . . . . . . . . . . . . . . . . . . . . . . . 106
+ 7.7 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 114
+ 7.8 Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 115
+ 8 Functions 117
+ 8.1 EmailBuilder . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 117
+ 8.2 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 117
+ 8.2.1 Motivationsformodularization . . . . . . . . . . . . . . . 117
+ 8.3 Theanatomyof functions . . . . . . . . . . . . . . . . . . . . . . 118
+ 8.4 Argumentsandreturnvalue . . . . . . . . . . . . . . . . . . . . . 120
+ 8.4.1 Functionwithnoargumentsandnoreturnvalue . . . . . 120
+ 8.4.2 Functionwithargumentsbutnoreturnvalue . . . . . . . 120
+ 8.4.3 Functionwithreturnvaluebutnoarguments . . . . . . . 120
+ 8.4.4 Functionwithargumentsandreturnvalue. . . . . . . . . 121
+ 8.5 Algorithmandflowchartformodules . . . . . . . . . . . . . . . . 121
+ 8.6 Variablescopeandparameterpassing . . . . . . . . . . . . . . . 122
+ 8.7 Keywordargumentsanddefaultarguments . . . . . . . . . . . . 122
+ 8.8 Programmingexamples . . . . . . . . . . . . . . . . . . . . . . . 124
+ 8.9 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 127
+ 8.10Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 128
+ 9 Strings 132
+ 9.1 EventInvitationGenerator . . . . . . . . . . . . . . . . . . . . . 132
+ 9.2 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 132
+ 9.3 Thesubscriptoperator . . . . . . . . . . . . . . . . . . . . . . . . 133
+ 9.4 Traversingastring . . . . . . . . . . . . . . . . . . . . . . . . . . 134
+ 9.5 Concatenationandrepetitionoperators . . . . . . . . . . . . . . 135
+ 9.6 Stringslicing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 135
+ 9.7 Comparisonoperatorsonstrings . . . . . . . . . . . . . . . . . . 136
+ 9.8 Theinoperator . . . . . . . . . . . . . . . . . . . . . . . . . . . 137
+ 9.9 Thestringmodule . . . . . . . . . . . . . . . . . . . . . . . . . 138
+ 9.10Programmingexamples . . . . . . . . . . . . . . . . . . . . . . . 140
+ 9.11Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 144
+ 9.12Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 144
+ 10Listsandtuples 147
+ 10.1RestaurantOrderManagementSystem. . . . . . . . . . . . . . . 147
+ 10.2Lists . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 147
+ 10.2.1 Creatinglists . . . . . . . . . . . . . . . . . . . . . . . . . 148
+ 10.2.2 Accessinglistelementsandtraversal . . . . . . . . . . . . 149
+ 10.2.3 ListComprehension . . . . . . . . . . . . . . . . . . . . . 149
+ 10.2.4 Listoperations . . . . . . . . . . . . . . . . . . . . . . . . 150
+ 10.2.5 Listslices . . . . . . . . . . . . . . . . . . . . . . . . . . . 152
+ 10.2.6 Listmutations . . . . . . . . . . . . . . . . . . . . . . . . 152
+ 10.2.7 Listmethods . . . . . . . . . . . . . . . . . . . . . . . . . 154
+ 10.2.8 Listsandfunctions . . . . . . . . . . . . . . . . . . . . . . 156
+ 10.2.9 Stringsandlists . . . . . . . . . . . . . . . . . . . . . . . 156
+ 10.2.10Listof lists . . . . . . . . . . . . . . . . . . . . . . . . . . 157
+ 10.2.11Listaliasingandcloning . . . . . . . . . . . . . . . . . . . 158
+ 10.2.12Equalityof lists . . . . . . . . . . . . . . . . . . . . . . . . 159
+ 10.3Tuples . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 159
+ 10.3.1 Tuplecreation . . . . . . . . . . . . . . . . . . . . . . . . 160
+ 10.3.2 Tupleoperations . . . . . . . . . . . . . . . . . . . . . . . 160
+ 10.4Thenumpypackageandarrays . . . . . . . . . . . . . . . . . . . 161
+ 10.4.1 Creatingarrays . . . . . . . . . . . . . . . . . . . . . . . . 161
+ 10.4.2 Accessingarrayelements. . . . . . . . . . . . . . . . . . . 162
+ 10.4.3 Changingarraydimensions . . . . . . . . . . . . . . . . . 163
+ 10.4.4Matrixoperations . . . . . . . . . . . . . . . . . . . . . . 164
+ 10.5Programmingexamples . . . . . . . . . . . . . . . . . . . . . . . 165
+ 10.6Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 166
+ 10.7Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 166
+ 11SetsandDictionaries 170
+ 11.1MembershipManager . . . . . . . . . . . . . . . . . . . . . . . . 170
+ 11.2 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 170
+ 11.3Sets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 171
+ 11.3.1 Creatingasetandaccessingitselements. . . . . . . . . . 171
+ 11.3.2 Addingandremovingsetelements . . . . . . . . . . . . . 172
+ 11.3.3 Setsandrelationaloperators . . . . . . . . . . . . . . . . 173
+ 11.3.4MathematicalsetoperationsonPythonsets . . . . . . . . 174
+ 11.4Dictionaries . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 175
+ 11.4.1 Dictionaryoperations . . . . . . . . . . . . . . . . . . . . 176
+ 11.4.2 Dictionarymethods . . . . . . . . . . . . . . . . . . . . . 178
+ 11.4.3 Dictionaryaliasingandcopying . . . . . . . . . . . . . . . 179
+ 11.5Programmingexamples . . . . . . . . . . . . . . . . . . . . . . . 179
+ 11.6Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 180
+ 11.7Exercise . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 181
+ 12RecursiveThinking 185
+ 12.1WhatisRecursion?. . . . . . . . . . . . . . . . . . . . . . . . . . 185
+ 12.1.1 KeyConcepts . . . . . . . . . . . . . . . . . . . . . . . . . 187
+ 12.2Example:CalculatingFactorials . . . . . . . . . . . . . . . . . . 187
+ 12.2.1 RecursiveDefinition . . . . . . . . . . . . . . . . . . . . . 187
+ 12.2.2 RecursiveFunctionImplementation . . . . . . . . . . . . 188
+ 12.2.3 ExplanationoftheRecursiveFunction . . . . . . . . . . . 188
+ 12.2.4 HowItWorks . . . . . . . . . . . . . . . . . . . . . . . . . 188
+ 12.3TheCallStack . . . . . . . . . . . . . . . . . . . . . . . . . . . . 190
+ 12.3.1 HowtheCallStackWorks. . . . . . . . . . . . . . . . . . 190
+ 12.3.2 ImportanceoftheCallStack . . . . . . . . . . . . . . . . 190
+ 12.3.3 CallStackVisualization . . . . . . . . . . . . . . . . . . . 192
+ 12.3.4 ImplicationsofRecursionandtheCallStack . . . . . . . 195
+ 12.4WhyUseRecursion? . . . . . . . . . . . . . . . . . . . . . . . . . 195
+ 12.4.1 Simplification . . . . . . . . . . . . . . . . . . . . . . . . . 196
+ 12.4.2 NaturalFitforCertainProblems . . . . . . . . . . . . . . 197
+ 12.5StepsforSolvingComputationalProblemsusingRecursion . . . 199
+ 12.6ExampleProblems . . . . . . . . . . . . . . . . . . . . . . . . . . 202
+ 12.6.1 FindingtheMaximumElementinaList . . . . . . . . . . 202
+ 12.6.2 ReversingaString . . . . . . . . . . . . . . . . . . . . . . 203
+ 12.6.3 CountingtheOccurrencesofaValueinaList . . . . . . . 203
+ 12.6.4 FlatteningaNestedList . . . . . . . . . . . . . . . . . . . 204
+ 12.6.5 CalculatingthePowerofaNumber. . . . . . . . . . . . . 205
+ 12.6.6 GeneratingAllSubsetsofaSet . . . . . . . . . . . . . . . 206
+ 12.6.7 SolvingaMaze(Backtracking) . . . . . . . . . . . . . . . 206
+ 12.7AvoidingCircularityinRecursion . . . . . . . . . . . . . . . . . . 208
+ 12.8 Iterationvs.Recursion. . . . . . . . . . . . . . . . . . . . . . . . 211
+ 12.8.1 Iteration. . . . . . . . . . . . . . . . . . . . . . . . . . . . 211
+ 12.8.2 Recursion . . . . . . . . . . . . . . . . . . . . . . . . . . . 212
+ 12.8.3 ComparingIterationandRecursion. . . . . . . . . . . . . 213
+ 12.9Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 213
+ 12.10Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 214
+ 13ComputationalApproachesToProblem-Solving 217
+ 13.1Brute-ForceApproachtoProblemSolving . . . . . . . . . . . . . 218
+ 13.1.1 CharacteristicsofBrute-ForceSolutions . . . . . . . . . . 219
+ 13.1.2 SolvingComputationalProblemsUsingBrute-forceAp
+proachApproach . . . . . . . . . . . . . . . . . . . . . . . 220
+ 13.1.3 AdvantagesandLimitationsofBrute-ForceApproach . . 227
+ 13.1.4 OptimizingBrute-forceSolutions . . . . . . . . . . . . . . 228
+ 13.2Divide-and-conquerApproachtoProblemSolving. . . . . . . . . 229
+ 13.2.1 PrinciplesofDivide-and-Conquer . . . . . . . . . . . . . . 231
+ 13.2.2 SolvingComputationalProblemsUsingDivideandCon
+querApproach . . . . . . . . . . . . . . . . . . . . . . . . 236
+ 13.2.3 Advantages andDisadvantages ofDivide andConquer
+ Approach . . . . . . . . . . . . . . . . . . . . . . . . . . . 244
+ 13.3DynamicProgrammingApproachtoProblemSolving . . . . . . 245
+ 13.3.1 ComparisonwithOtherProblem-solvingTechniques . . . 248
+ 13.3.2 FundamentalPrinciplesofDynamicProgramming . . . . 249
+ 13.3.3 ApproachesinDynamicProgramming . . . . . . . . . . . 249
+ 13.3.4 SolvingComputationalProblemsUsingDynamicProgram
+mingApproach . . . . . . . . . . . . . . . . . . . . . . . . 253
+ 13.3.5 ExamplesofDynamicProgramming . . . . . . . . . . . . 257
+ 13.3.6 AdvantagesandDisadvantagesoftheDynamicProgram
+mingApproach . . . . . . . . . . . . . . . . . . . . . . . . 258
+ 13.4GreedyApproachtoProblemSolving . . . . . . . . . . . . . . . 258
+ 13.4.1MotivationsfortheGreedyApproach . . . . . . . . . . . 260
+ 13.4.2 CharacteristicsoftheGreedyAlgorithm. . . . . . . . . . 261
+ 13.4.3 SolvingComputationalProblemsUsingGreedyApproach 262
+ 13.4.4 GreedyAlgorithmsvs.DynamicProgramming . . . . . . 265
+ 13.4.5 AdvantagesandDisadvantagesoftheGreedyApproach . 266
+ 13.5RandomizedApproachtoProblemSolving. . . . . . . . . . . . . 266
+ 13.5.1MotivationsfortheRandomizedApproach . . . . . . . . 268
+ 13.5.2 CharacteristicsofRandomizedApproach . . . . . . . . . 269
+ 13.5.3 RandomizedApproachvsDeterministicMethods . . . . . 270
+ 13.5.4 SolvingComputationalProblemsUsingRandomization . 271
+ 13.6Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 280
+ 13.7Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 282
 
 [Page 8]
 Chapter 1
