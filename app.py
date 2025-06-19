@@ -29,69 +29,42 @@ collection = chroma_client.get_or_create_collection(
 )
 
 # Streamlit UI config
-st.set_page_config(page_title="AI PDF Q&A", layout="wide")
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background:white;
-        color: Black;
-        font-family: Arial;
-        font-size: 30px;
-    }
+st.set_page_config(page_title="AI PDF Q&A")
 
-    h1,h3{
-        text-align: center;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-st.title("📄 Algorithm Thinking With Python")
-st.subheader("AI-Powered PDF Question Answering")
-st.markdown("📘About the Subject\n\n 'Algorithm Thinking with Python' is a newly introduced subject in the 2024 KTU B.Tech syllabus under the 2024 scheme. This course is designed to strengthen logical thinking skills while introducing students to the fundamentals of Python programming. It serves as a foundational step toward problem-solving using algorithms in real-world scenarios.\n\n📔 About This App.\n\n This web application is built to help students engage more deeply with the subject by allowing them to ask questions directly from the preloaded official textbook of Algorithm Thinking with Python. The AI-powered system retrieves relevant content from the textbook and generates clear, contextual answers. It's your personal study assistant for better understanding core concepts, code examples, and logic-based problems — all from one place.")
-st.markdown("Ask questions based on our preloaded Text Book of Algorithm thinking with python.")
-st.markdown(
-    """
-    💡 **Tip:** Each question you ask is answered independently based on the textbook content.  
-    To get the most accurate answers, try to ask complete and specific questions.
-    """
-)
+st.title("Algorithm Thinking - Python")
 
-
+st.sidebar.title("About the Subject")
+st.sidebar.markdown("""
+'Algorithm Thinking with Python' is a newly introduced subject in the 2024 KTU B.Tech syllabus under the 2024 scheme.
+This course is designed to strengthen logical thinking skills while introducing students to the fundamentals of Python programming.
+It serves as a foundational step toward problem-solving using algorithms in real-world scenarios.
+""")
+st.sidebar.title("About This App.")
+st.sidebar.markdown("""
+This web application is built to help students engage more deeply with the subject by allowing them to ask questions directly from the preloaded official textbook of Algorithm Thinking with Python.
+The AI-powered system retrieves relevant content from the textbook and generates clear, contextual answers. It's your personal study assistant for better understanding core concepts, code examples, and logic-based problems — all from one place.
+""")
 
 def clean_text(text):
-    # Remove boilerplate like author names, table of contents, headers, page numbers
     lines = text.split("\n")
     cleaned_lines = []
 
     for line in lines:
         line = line.strip()
-
-        # Skip lines that are:
         if (
-            len(line) < 30                # Too short, likely not useful
-            or re.match(r"^Page\s*\d+", line, re.I)  # Matches "Page 1", etc.
-            or re.search(r"Author|Copyright", line, re.I)
+            len(line) < 30 or
+            re.match(r"^Page\s*\d+", line, re.I) or
+            re.search(r"Author|Copyright", line, re.I)
         ):
             continue
-
         cleaned_lines.append(line)
 
     return "\n".join(cleaned_lines)
 
-# Load and split PDF into chunks
-@st.cache_data(show_spinner=False)
+@st.cache_data
 def load_pdf_chunks(pdf_path):
-    reader = PdfReader(pdf_path)
-    raw_text = ""
-
-    for page in reader.pages:
-        text = page.extract_text()
-        if text:
-            cleaned = clean_text(text)
-            raw_text += cleaned + "\n"
-
+    with open("ATP_Split.txt", "r", encoding="utf-8") as f:
+        raw_text = f.read()
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=500,
         chunk_overlap=100
@@ -99,86 +72,107 @@ def load_pdf_chunks(pdf_path):
     chunks = splitter.split_text(raw_text)
     return chunks
 
-# Store chunks to ChromaDB if not already stored
-# Utility: Get hash of the PDF file
 def get_pdf_hash(pdf_path):
     with open(pdf_path, "rb") as f:
         return hashlib.md5(f.read()).hexdigest()
 
-# Utility: Save hash to a file
 def save_hash(current_hash, filename="pdf_hash.pkl"):
     with open(filename, "wb") as f:
         pickle.dump(current_hash, f)
 
-# Utility: Load previous hash
 def load_hash(filename="pdf_hash.pkl"):
     if os.path.exists(filename):
         with open(filename, "rb") as f:
             return pickle.load(f)
     return None
 
-# Updated: store chunks only if PDF changed
 def store_chunks_if_pdf_changed(chunks, pdf_path):
-    current_hash = get_pdf_hash(pdf_path)
-    previous_hash = load_hash()
+    clean_chunks = [str(chunk).strip() for chunk in chunks if isinstance(chunk, str) and chunk.strip()]
+    ids = [str(i) for i in range(len(clean_chunks))]
+    collection.add(documents=clean_chunks, ids=ids)
 
-    if current_hash != previous_hash:
-        # Fetch existing documents
-        existing = collection.get()
-        if existing and "ids" in existing and existing["ids"]:
-            collection.delete(ids=existing["ids"])
-
-        # Store new chunks
-        collection.add(
-            documents=chunks,
-            ids=[f"chunk_{i}" for i in range(len(chunks))],
-            metadatas=[{"source": f"page_{i}"} for i in range(len(chunks))]
-        )
-        save_hash(current_hash)
-
-
-# Get top relevant chunks
-def get_top_chunks(query, top_k=3):
+def get_top_chunks(query, top_k=7):
     results = collection.query(
         query_texts=[query],
         n_results=top_k
     )
-    return results["documents"][0]  # list of top chunks
+    top_chunks = results.get("documents", [[]])[0]
+    return [str(doc) for doc in top_chunks if isinstance(doc, str) and doc.strip()]
 
-# Generate answer using GPT-4
 def answer_question(query):
-    top_chunks = get_top_chunks(query)
-    context = "\n---\n".join(top_chunks)
-    prompt = f"Answer the question using the context below.\nContext:\n{context}\n\nQuestion: {query}\nAnswer:"
+    # If it's a vague query, reuse the last context
+    vague_prompts = ["give an example", "explain more", "what about it", "why", "how"]
+    if any(query.lower().startswith(x) for x in vague_prompts):
+        context = st.session_state.get("last_context", "")
+    else:
+        top_chunks = get_top_chunks(query)
+        context = "\n---\n".join(top_chunks)
+        # Save this context for vague follow-up
+        st.session_state.last_context = context
+
+    messages = [{"role": "system", "content": "You are a teacher who answers questions from a textbook for students affiliated with APJ Abdul Kalam Technological University."}]
+    
+    # Chat history
+    for msg in st.session_state.messages:
+        messages.append({"role": msg["role"], "content": msg["content"]})
+
+    prompt = f"Answer the question using the context below.\nContext:\n{context}\n\nQuestion: {query}"
+    messages.append({"role": "user", "content": prompt})
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": "You are a teacher who answers questions based on stored pdf ATP.pdf to B tech students in kerala affliated to APJ abdhul kalam university"},
-            {"role": "user", "content": prompt}
-        ],
+        messages=messages,
         stream=True
     )
-    # Stream generator
+
     def stream_generator():
         for chunk in response:
             if chunk.choices and chunk.choices[0].delta and chunk.choices[0].delta.content:
                 yield chunk.choices[0].delta.content
 
     return stream_generator()
-    
+
+
 
 # Main flow
-with st.spinner("Loading PDF content and preparing..."):
-    chunks = load_pdf_chunks("pdfs/ATP_split.pdf")
-    store_chunks_if_pdf_changed(chunks,"pdfs/ATP_split.pdf")
+pdf_path = "ATP_split.txt"
+with st.spinner("Checking PDF status..."):
+    current_hash = get_pdf_hash(pdf_path)
+    previous_hash = load_hash()
 
-user_query = st.text_input("",placeholder="e.g., What is Algorithm Thinking with python?")
+    if current_hash != previous_hash:
+        st.info("🔄 Loading PDF content and preparing...")
+        chunks = load_pdf_chunks(pdf_path)
+        store_chunks_if_pdf_changed(chunks, pdf_path)
+        save_hash(current_hash)
+        st.success("📚 PDF has been successfully processed and stored.")
+    else:
+        st.success("✅ PDF already processed and up-to-date.")
 
-if user_query:
-    with st.spinner("Thinking..."):
-        response = answer_question(user_query)
-        st.markdown("## Answer:")
-        st.write(response)
+# Chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
-   
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+if user_query := st.chat_input("Wanna ask anything from the PDF?"):
+    st.session_state.messages.append({"role": "user", "content": user_query})
+    with st.chat_message("user"):
+        st.markdown(user_query)
+
+    with st.chat_message("assistant"):
+        response_placeholder = st.empty()
+        full_response = ""
+
+        # ✅ Spinner ends before streaming
+        with st.spinner("Thinking..."):
+            generator = answer_question(user_query)
+
+        for chunk in generator:
+            full_response += chunk
+            response_placeholder.markdown(full_response + "▌")
+
+        response_placeholder.markdown(full_response)
+        st.session_state.messages.append({"role": "assistant", "content": full_response})
