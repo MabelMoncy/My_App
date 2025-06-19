@@ -62,7 +62,7 @@ st.markdown("""
         /* Fix the chat input alignment */
         .st-emotion-cache-13ln4jf {  /* This is the class Streamlit uses for input box container */
             position: fixed;
-            bottom: 0;
+            bottom: 16px;
             left: 0;
             right: 0;
             background: #0e1117;
@@ -78,15 +78,26 @@ st.markdown("""
 
         /* Prevent chat from being too wide */
         .stChatMessage p {
-            margin: 0 auto;
+            margin: 2px;
             text-align: left;
             max-width: 100%;
         }
+        /* Reduce left margin for assistant messages */
+.stChatMessageContent {
+    margin-left: 0 !important;
+    padding-left: 8px !important;
+}
+
+/* Also reduce padding for all chat messages */
+.st-emotion-cache-1c7y2kd {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
 
         /* Optional: Better spacing for content in mobile */
         @media screen and (max-width: 600px) {
             .stApp {
                 padding: 0 8px;
+                bottom: 16px;
             }
         }
     </style>
