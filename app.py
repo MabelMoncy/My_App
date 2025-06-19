@@ -50,8 +50,8 @@ st.markdown("""
 
 /* 1. Raise input box and prevent it from hiding behind bottom bezel */
 .st-emotion-cache-13ln4jf {
-    position: fixed;
-    bottom: 100px;  /* Adjust height above mobile gesture bar */
+   
+    bottom: 150px;  /* Adjust height above mobile gesture bar */
     left: 0;
     right: 0;
     background-color: white;
