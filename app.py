@@ -44,6 +44,54 @@ st.sidebar.markdown("""
 This web application is built to help students engage more deeply with the subject by allowing them to ask questions directly from the preloaded official textbook of Algorithm Thinking with Python.
 The AI-powered system retrieves relevant content from the textbook and generates clear, contextual answers. It's your personal study assistant for better understanding core concepts, code examples, and logic-based problems — all from one place.
 """)
+# Inject custom CSS for better mobile experience
+st.markdown("""
+    <style>
+        /* Center the title and make it responsive */
+        .stApp h1 {
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        /* Adjust chat message blocks */
+        .stChatMessage {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+
+        /* Fix the chat input alignment */
+        .st-emotion-cache-13ln4jf {  /* This is the class Streamlit uses for input box container */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #0e1117;
+            padding: 8px;
+            z-index: 100;
+        }
+
+        /* Responsive padding for messages */
+        .element-container:has(.stChatMessage) {
+            padding-left: 8px !important;
+            padding-right: 8px !important;
+        }
+
+        /* Prevent chat from being too wide */
+        .stChatMessage p {
+            margin: 0 auto;
+            text-align: left;
+            max-width: 100%;
+        }
+
+        /* Optional: Better spacing for content in mobile */
+        @media screen and (max-width: 600px) {
+            .stApp {
+                padding: 0 8px;
+            }
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 
 def clean_text(text):
     lines = text.split("\n")
