@@ -29,7 +29,7 @@ collection = chroma_client.get_or_create_collection(
 )
 
 # Streamlit UI config
-st.set_page_config(page_title="AI PDF Q&A")
+st.set_page_config(page_title="Alpy ATP bot")
 
 st.title("Algorithm Thinking - Python")
 
@@ -101,7 +101,7 @@ def get_top_chunks(query, top_k=7):
 
 def answer_question(query):
     # If it's a vague query, reuse the last context
-    vague_prompts = ["give an example", "explain more", "what about it", "why", "how"]
+    vague_prompts = ["give an example", "explain more", "what about it", "why", "how","it"]
     if any(query.lower().startswith(x) for x in vague_prompts):
         context = st.session_state.get("last_context", "")
     else:
@@ -136,18 +136,18 @@ def answer_question(query):
 
 # Main flow
 pdf_path = "ATP_Split.txt"
-with st.spinner("Checking PDF status..."):
+with st.spinner("Checking PDF Text book status..."):
     current_hash = get_pdf_hash(pdf_path)
     previous_hash = load_hash()
 
     if current_hash != previous_hash:
-        st.info("🔄 Loading PDF content and preparing...")
+        st.info("🔄 Loading text book content and preparing...")
         chunks = load_pdf_chunks(pdf_path)
         store_chunks_if_pdf_changed(chunks, pdf_path)
         save_hash(current_hash)
-        st.success("📚 PDF has been successfully processed and stored.")
+        st.success("📚 Text Book has been successfully processed and stored.")
     else:
-        st.success("✅ PDF already processed and up-to-date.")
+        st.success("✅ Text Book already processed and up-to-date.")
 
 # Chat history
 if "messages" not in st.session_state:
@@ -157,7 +157,7 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-if user_query := st.chat_input("Wanna ask anything from the PDF?"):
+if user_query := st.chat_input("Wanna ask anything from the text book..?"):
     st.session_state.messages.append({"role": "user", "content": user_query})
     with st.chat_message("user"):
         st.markdown(user_query)
