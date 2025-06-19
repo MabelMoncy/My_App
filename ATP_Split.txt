@@ -232,6 +232,26 @@ mingApproach . . . . . . . . . . . . . . . . . . . . . . . . 258
  13.5.4 SolvingComputationalProblemsUsingRandomization . 271
  13.6Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 280
  13.7Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 282
+ 14TheCodingDarbaar 288
+ 14.1TheHauntedChamber . . . . . . . . . . . . . . . . . . . . . . . . 288
+ 14.1.1 Problemdescription . . . . . . . . . . . . . . . . . . . . . 288
+ 14.2TheStrictLibrarian . . . . . . . . . . . . . . . . . . . . . . . . . 289
+ 14.2.1 Problemdescription . . . . . . . . . . . . . . . . . . . . . 289
+ 14.3Thedirectionkiosk . . . . . . . . . . . . . . . . . . . . . . . . . . 289
+ 14.3.1 Problemdescription . . . . . . . . . . . . . . . . . . . . . 289
+ 14.4TheRoombiller . . . . . . . . . . . . . . . . . . . . . . . . . . . 289
+ 14.4.1 Problemdescription . . . . . . . . . . . . . . . . . . . . . 289
+ 14.5TheGeneralizedFibonacci. . . . . . . . . . . . . . . . . . . . . . 290
+ 14.5.1 Problemdescription . . . . . . . . . . . . . . . . . . . . . 290
+ 14.6TheCurrencychanger . . . . . . . . . . . . . . . . . . . . . . . . 290
+ 14.6.1 Problemdescription . . . . . . . . . . . . . . . . . . . . . 290
+ 14.7TheCoinHeapGame . . . . . . . . . . . . . . . . . . . . . . . . 290
+ 14.7.1 Problemdescription . . . . . . . . . . . . . . . . . . . . . 290
+ 14.8TheBadStrings . . . . . . . . . . . . . . . . . . . . . . . . . . . 291
+ 14.8.1 Problemdescription . . . . . . . . . . . . . . . . . . . . . 291
+ 14.9TheCodeclassifier . . . . . . . . . . . . . . . . . . . . . . . . . . 291
+ 14.9.1 Problemdescription . . . . . . . . . . . . . . . . . . . . . 291
+
 
 [Page 8]
 Chapter 1
@@ -14106,4 +14126,148 @@ through all possible triplets and verifying their sums.
 
 10. Use brute force to find the longest palindromic substring in a given string
 by checking every possible substring and verifying if it is a palindrome.
+[page 288]
+Chapter 14
+The Coding Darbaar
+“Talent is a pursued interest. Anything that you’re willing to practice, you can
+do.”
+- Bob Ross
+“Success is the sum of small efforts, repeated day in and day out.”
+- Robert Collier
+To improve your problem-solving skills and instill a sense of out-of-box
+thinking in you, we have created some spine-chilling problems! You
+can solve them hands-on and submit at https://www.hackerrank.com/
+the-coding-darbaar. Some sample problems are included in this chapter.
+14.1 The Haunted Chamber
+14.1.1 Problem description
+Walking by the backyard of your department, you stumble upon a large room
+that seems to be a haunted chamber. You decide to inhabit it as a hideaway
+whenever you are late for attending programming classes as the professor is
+too strict with attendance. Being good at mathematics, you wish to find the
+actual cost to paint the interior side (walls and the door) of the room leaving the
+windows unpainted. The front wall has a door and the two sidewalls have one
+window each (not necessarily of the same size). Input the dimensions (length,
+breadth, and height in meters) of the room and the two windows (length and
+height in meters) and then determine the painting expenses. It is known that
+one litre of paint can cover 6 square metres and the paint costs Rs.500/litre.
+288
+14.2. THE STRICT LIBRARIAN 289
+14.2 The Strict Librarian
+14.2.1 Problem description
+A library levies a fine for every book returned late. For the first 10 days, the
+fine is Rs. 0.5 per day, for the next 10 days, the fine is Re. 1 per day and for
+the next 10 days, the fine is Rs. 2 per day. If you return a book after 30 days,
+the membership will be canceled. Input the number of days the member is late
+to return the book and display the fine or the appropriate message.
+14.3 The direction kiosk
+14.3.1 Problem description
+You are the computer programmer of a big firm which has recently shifted to
+a new 7-storey building. To help the clients easily locate the rooms, your boss
+has assigned you the task of setting up an automated direction kiosk that will
+accept the room number as input and output the directions to reach the room.
+The room numbers are three-digit numbers and follow a fixed pattern. The first
+digit denotes the floor and the last two digits indicate the room number on that
+floor. For example, room number 207 denotes the 7th room on the second floor
+and room number 015 denotes the 15th room on the ground floor (zeroth floor).
+Further, on a floor, odd-numbered rooms are on the left and even-numbered
+rooms on the right and there are 16 rooms on every floor. The figure below
+shows the floor plan of the 7th floor and all the floors follow this plan.
+
+14.4 The Room biller
+14.4.1 Problem description
+A hotel has the following room pricing policy:
+290 CHAPTER 14. THE CODING DARBAAR
+• 1 or 2 persons:- Rs. 850 (base tariff)
+• 3 or 4 persons:- Base tariff plus Rs. 150 for each additional person (1 or
+2)
+• greater than 4:- New rooms to be allocated at a maximum of 4 persons
+per room
+For company business stay, there is a 15% discount. If at least one of the
+customers is over 60 years of age, there is a 20% discount. A customer does not
+receive both discounts. The discount is given for the entire group of persons (not
+on per per-room basis). Your job is to determine the room rent after getting
+the necessary inputs.
+14.5 The Generalized Fibonacci
+14.5.1 Problem description
+A generalized Fibonacci sequence is a sequence of numbers such that from
+the third number, each number is the sum of the preceding two numbers. For
+example, 2 5 7 12 19 is a generalized Fibonacci sequence. Given a sequence
+of numbers, decide whether the sequence is a generalized Fibonacci sequence or
+not.
+14.6 The Currency changer
+14.6.1 Problem description
+In the Indian currency system, the denominations available are 5, 10, 20, 50,
+100, 200 and 500. (For the moment, you may forget about coins!!!) To make
+a sum of 1000, you can use five 200 rupee notes or ten 100 rupee notes, or
+two 500 rupee notes (and many other combinations are possible). But the last
+option takes the least number of currency notes. Given the available denominations and the sum (input from the user), print how to make the sum using the
+available denominations with the least number of currency notes. Assume the
+sum is an integer and you have an unlimited supply of currency notes of each
+denomination.
+14.7 The Coin Heap Game
+14.7.1 Problem description
+Two players start playing a board game. The game board consists of N heaps
+arranged in a sequence, each containing a certain number of coins. The figure
+shows such a board with 5 heaps.
+14.8. THE BAD STRINGS 291
+HEAP 1 HEAP 2 HEAP 3 HEAP 4 HEAP 5
+7 coins 2 coins 4 coins 3 coins 5 coins
+The players first toss a coin to decide who starts the game and also what end
+(left or right) of the board, each player prefers. Once the game starts, the two
+players move alternately from each end. When a player moves, he chooses a
+heap from the chosen end (left or right) of the board, and removes the selected
+heap of coins from it. The player should be consistent in the sense that if had
+chosen the left end, he should continue removing coins from the left end only.
+The game is over when the board is exhausted (no coins left). The player who
+has collected the maximum number of coins wins the game. Input which player
+between the two wishes to start the game and what end (left or right) he prefers,
+and then declare the winner.
+14.8 The Bad Strings
+14.8.1 Problem description
+Captain Hook has stolen from Jake his favourite ship “The Bucky”. To return
+the ship, Mr. Hook wants Jake to solve a puzzle. The Captain gives Jake a list
+of strings and wants him to determine the ”most bad” string in the list. The
+”badness value” of a string str in the list is the count of strings that appear
+before str in the list but that are lexicographically (alphabetically) larger than
+str. If there is a tie for the most bad string, choose the alphabetically larger
+one.
+14.9 The Code classifier
+14.9.1 Problem description
+Every course in the 2019 scheme curriculum was identified by a ”course code”
+with the following format:
+• first two characters: dept which offers the course like CS, EC, MA (for
+Maths), etc.
+• third character: T(theory), L(lab), N(non credit), D(project based) and
+Q(seminar)
+• fourth character: year of study in which the course is offered. 2- second
+year, 3 - third year, etc.
+• last two characters: when interpreted as a two-digit integer tells whether
+the course is offered in the odd (last two characters is an odd number),
+even (last two characters is a non-zero even number) semester or in both
+semesters (last character is a zero) of the year as indicated by fourth
+292 CHAPTER 14. THE CODING DARBAAR
+character. For example, if the last three characters are 205 it denotes a
+course offered during the odd semester (05 is odd) of the second year (that
+is the third semester). And if the last three characters are 110, it denotes
+a course offered during both semesters (note that the last character is a
+zero) of the first year (that is first two semesters).
+Given a list of n course codes, come up with a classification of them. You
+may consider only the following departments: CS, ES(Engineering Sciences),
+PH(Physics), CH(Chemistry), MA(Math), and HU(Humanities).
+Sample input
+CST201 EST120 HUT200 CST404 CST306 CST207 CST308 CST402
+PHT100 CSL201 CSL331 CSD334 HUN102
+Sample output
+CS dept
+S3 2 theory courses 1 lab course
+S5 1 lab course
+S6 2 theory courses 1 project
+S8 2 theory courses
+Engg Sciences dept
+S1 and S2 1 theory course
+Humanities dept
+S2 1 non credit course
+S3 and S4 1 theory course
+Physics dept
+S1 and S2 1 theory course
 
