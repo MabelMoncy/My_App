@@ -46,52 +46,53 @@ The AI-powered system retrieves relevant content from the textbook and generates
 """)
 # Inject custom CSS for better mobile experience
 st.markdown("""
-    <style>
-        /* Center the title and make it responsive */
-        .stApp h1 {
-            text-align: center;
-            font-size: 1.8rem;
-        }
+<style>
 
-        /* Adjust chat message blocks */
-        .stChatMessage {
-            padding-left: 10px !important;
-            padding-right: 10px !important;
-        }
+/* 1. Raise input box and prevent it from hiding behind bottom bezel */
+.st-emotion-cache-13ln4jf {
+    position: fixed;
+    bottom: 60px;  /* Adjust height above mobile gesture bar */
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 10px 12px;
+    z-index: 999;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
 
-        /* Fix the chat input alignment */
-        .st-emotion-cache-13ln4jf {  /* This is the class Streamlit uses for input box container */
-            position: fixed;
-            bottom: 50px;
-            left: 0;
-            right: 0;
-            background: #0e1117;
-            padding: 8px;
-            z-index: 100;
-        }
+/* 2. Add bottom padding to the main container to prevent overlap */
+.st-emotion-cache-z5fcl4 {
+    padding-bottom: 140px !important;  /* Leave space for fixed input box */
+}
 
-        /* Responsive padding for messages */
-        .element-container:has(.stChatMessage) {
-            padding-left: 8px !important;
-            padding-right: 8px !important;
-        }
+/* 3. Align answer content closer to the left */
+.stMarkdown {
+    text-align: left !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}
 
-        /* Prevent chat from being too wide */
-        .stChatMessage p {
-            margin: 2px;
-            text-align: left;
-            max-width: 100%;
-        }
-        
-        /* Optional: Better spacing for content in mobile */
-        @media screen and (max-width: 600px) {
-            .stApp {
-                padding: 0 8px;
-                bottom: 16px;
-            }
-        }
-    </style>
+/* 4. Make heading smaller on mobile screens */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 22px !important;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Optional: improve chat message bubbles on small screens */
+.stChatMessage {
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+    padding: 6px !important;
+}
+
+</style>
 """, unsafe_allow_html=True)
+
 
 
 def clean_text(text):
