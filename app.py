@@ -207,7 +207,10 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-if user_query := st.chat_input("Wanna ask anything from the text book..?"):
+if user_query := st.text_area(
+    placeholder="Wanna ask anything from the text book..?",
+    height=100
+):
     st.session_state.messages.append({"role": "user", "content": user_query})
     with st.chat_message("user"):
         st.markdown(user_query)
