@@ -208,6 +208,7 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 if user_query := st.text_area(
+    "",
     placeholder="Wanna ask anything from the text book..?",
     height=100
 ):
