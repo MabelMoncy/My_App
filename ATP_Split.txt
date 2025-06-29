@@ -19,33 +19,37 @@
 
  ## 2 Algorithms, pseudocodes, and flowcharts <!-- page: 26 -->
 
- 2.1 Algorithmsandpseudocodes . . . . . . . . . . . . . . . . . . . . 26
- 2.1.1 Whypseudocodes? . . . . . . . . . . . . . . . . . . . . . . 27
- 2.1.2 Constructsofapseudocode . . . . . . . . . . . . . . . . . 28
- 2.2 Flowcharts. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 34
- 2.3 Solvedproblems-AlgorithmsandFlowcharts . . . . . . . . . . . 36
- 2.4 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
- 2.5 Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
- 3 Foundationsofcomputing 51
- 3.1 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
- 3.2 Architectureofacomputer . . . . . . . . . . . . . . . . . . . . . 52
- 3.2.1 Input/outputunit . . . . . . . . . . . . . . . . . . . . . . 52
- 3.2.2 CentralProcessingUnit . . . . . . . . . . . . . . . . . . . 54
- 3.2.3 Memoryunit . . . . . . . . . . . . . . . . . . . . . . . . . 55
- 3.3 VonNeumannarchitecture . . . . . . . . . . . . . . . . . . . . . 57
- 3.4 Instructionexecution. . . . . . . . . . . . . . . . . . . . . . . . . 58
- 3.4.1 Instructionformat . . . . . . . . . . . . . . . . . . . . . . 58
- 3.4.2 Instructionexecutioncycle . . . . . . . . . . . . . . . . . 58
- 3.5 Programminglanguages . . . . . . . . . . . . . . . . . . . . . . . 59
- 3.5.1 MachineLanguage . . . . . . . . . . . . . . . . . . . . . . 60
- 3.5.2 AssemblyLanguage . . . . . . . . . . . . . . . . . . . . . 61
- 3.5.3 High-levelLanguage . . . . . . . . . . . . . . . . . . . . . 61
- 3.6 Translatorsoftware . . . . . . . . . . . . . . . . . . . . . . . . . . 61
- 3.6.1 Assembler . . . . . . . . . . . . . . . . . . . . . . . . . . . 62
- 3.6.2 Compiler . . . . . . . . . . . . . . . . . . . . . . . . . . . 62
- 3.6.3 Interpreter . . . . . . . . . . . . . . . . . . . . . . . . . . 62
- 3.7 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 63
- 4 Pythonfundamentals 66
+    2.1 Algorithms and pseudocodes  <!-- page: 26 -->
+      2.1.1 Why pseudocodes ?  <!-- page: 27 -->
+      2.1.2 Constructs of a pseudocode  <!-- page: 28 -->
+    2.2 Flowcharts  <!-- page: 34 -->
+    2.3 Solved problems-Algorithms and Flowcharts <!-- page: 36 -->
+    2.4 Conclusion  <!-- page: 48 -->
+    2.5 Exercises  <!-- page: 48 -->
+
+ ## 3 Foundationsofcomputing  <!-- page: 51 -->
+
+    3.1 Introduction   <!-- page: 51 -->
+    3.2 Architecture of a computer   <!-- page: 52 -->
+        3.2.1 Input/output unit   <!-- page: 52 -->
+        3.2.2 Central Processing Unit   <!-- page: 54 -->
+        3.2.3 Memory unit   <!-- page: 55 -->
+    3.3 Von Neumann architecture   <!-- page: 57 -->
+    3.4 Instruction execution  <!-- page: 58 -->
+        3.4.1 Instruction format <!-- page: 58 -->
+        3.4.2 Instruction execution cycle <!-- page: 58 -->
+    3.5 Programming languages <!-- page: 59 -->
+        3.5.1 Machine Language <!-- page: 60 -->
+        3.5.2 Assembly Language <!-- page: 61 -->
+        3.5.3 High-level Language <!-- page: 61 -->
+    3.6 Translator software <!-- page: 61 -->
+        3.6.1 Assembler <!-- page: 62 -->
+        3.6.2 Compiler <!-- page: 62 -->
+        3.6.3 Interpreter <!-- page: 62 -->
+    3.7 Conclusion <!-- page: 63 -->
+
+ 4 Python fundamentals 66
+
  4.1 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 66
  4.1.1 HowtorunyourPythoncode? . . . . . . . . . . . . . . . 67
  4.1.2 ThePythoninterpreter . . . . . . . . . . . . . . . . . . . 68
