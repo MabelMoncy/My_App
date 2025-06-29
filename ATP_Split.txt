@@ -1,6 +1,6 @@
 # Contents
 
- ## 1 The World of Problem-solving <!-- page: 10 -->
+ ##  chapter 1 The World of Problem-solving <!-- page: 10 -->
 
     1.1 Introduction <!-- page: 10 -->
     1.2 Problem-Solving Strategies <!-- page: 14 -->
@@ -17,7 +17,7 @@
     1.4 Conclusion <!-- page: 23 -->
     1.5 Exercises <!-- page: 23 -->
 
- ## 2 Algorithms, pseudocodes, and flowcharts <!-- page: 26 -->
+ ## chapter 2 Algorithms, pseudocodes, and flowcharts <!-- page: 26 -->
 
     2.1 Algorithms and pseudocodes  <!-- page: 26 -->
       2.1.1 Why pseudocodes ?  <!-- page: 27 -->
@@ -27,7 +27,7 @@
     2.4 Conclusion  <!-- page: 48 -->
     2.5 Exercises  <!-- page: 48 -->
 
- ## 3 Foundationsofcomputing  <!-- page: 51 -->
+ ## chapter 3 Foundationsofcomputing  <!-- page: 51 -->
 
     3.1 Introduction   <!-- page: 51 -->
     3.2 Architecture of a computer   <!-- page: 52 -->
@@ -48,7 +48,7 @@
         3.6.3 Interpreter <!-- page: 62 -->
     3.7 Conclusion <!-- page: 63 -->
 
- 4 Python fundamentals 66
+## chapter 4 Python fundamentals <!-- page: 66 -->
 
  4.1 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 66
  4.1.1 HowtorunyourPythoncode? . . . . . . . . . . . . . . . 67
