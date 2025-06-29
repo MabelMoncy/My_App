@@ -141,13 +141,6 @@ try:
             messages=messages,
             stream=True
         )
-
-        def stream_generator():
-            for chunk in response:
-                if chunk.choices and chunk.choices[0].delta and chunk.choices[0].delta.content:
-                    yield chunk.choices[0].delta.content
-
-        return stream_generator()
     # Main flow
     pdf_path = "ATP_Split.txt"
     with st.spinner("Checking PDF Text book status..."):
