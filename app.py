@@ -45,10 +45,6 @@ This web application is built to help students engage more deeply with the subje
 The AI-powered system retrieves relevant content from the textbook and generates clear, contextual answers. It's your personal study assistant for better understanding core concepts, code examples, and logic-based problems — all from one place.
 """)
 # Inject custom CSS for better mobile experience
-st.markdown("""
-""", unsafe_allow_html=True)
-
-
 
 def clean_text(text):
     lines = text.split("\n")
@@ -136,9 +132,6 @@ def answer_question(query):
                 yield chunk.choices[0].delta.content
 
     return stream_generator()
-
-
-
 # Main flow
 pdf_path = "ATP_Split.txt"
 with st.spinner("Checking PDF Text book status..."):
@@ -161,11 +154,7 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-if user_query := st.text_area(
-    "",
-    placeholder="Wanna ask anything from the text book..?",
-    height=100
-):
+if user_query := st.chat_input():
 # Container to hold the bottom input
 
     st.session_state.messages.append({"role": "user", "content": user_query})
