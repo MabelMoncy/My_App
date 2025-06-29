@@ -178,11 +178,11 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 if user_query := st.chat_input("Ask your question here"):
 # Container to hold the bottom input
- st.markdown('<div class="input-container">', unsafe_allow_html=True)
+    st.markdown('<div class="input-container">', unsafe_allow_html=True)
     st.session_state.messages.append({"role": "user", "content": user_query})
     with st.chat_message("user"):
-        st.markdown(user_query)
-      st.markdown('</div>', unsafe_allow_html=True)   
+            st.markdown(user_query)
+            st.markdown('</div>', unsafe_allow_html=True)   
 
     with st.chat_message("assistant"):
         response_placeholder = st.empty()
