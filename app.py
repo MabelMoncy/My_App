@@ -46,7 +46,7 @@ The AI-powered system retrieves relevant content from the textbook and generates
 """)
 # Inject custom CSS for better mobile experience
 
-def clean_text(text):
+"""def clean_text(text):
     lines = text.split("\n")
     cleaned_lines = []
 
@@ -60,7 +60,7 @@ def clean_text(text):
             continue
         cleaned_lines.append(line)
 
-    return "\n".join(cleaned_lines)
+    return "\n".join(cleaned_lines)"""
 
 @st.cache_data
 def load_pdf_chunks(pdf_path):
