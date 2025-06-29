@@ -46,24 +46,6 @@ The AI-powered system retrieves relevant content from the textbook and generates
 """)
 # Inject custom CSS for better mobile experience
 st.markdown("""
-<style>
-.fixed-textarea {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: white;
-        padding: 10px;
-        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-        z-index: 9999;
-    }
-
-    .fixed-textarea textarea {
-        height: 100px !important;
-        width: 100% !important;
-        resize: none;
-    }
-</style>
 """, unsafe_allow_html=True)
 
 
@@ -179,20 +161,12 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-
-"""if user_query := st.text_area(
+if user_query := st.text_area(
     "",
     placeholder="Wanna ask anything from the text book..?",
     height=100
-):"""
+):
 # Container to hold the bottom input
-bottom_input = st.empty()
-with bottom_input.container():
-    st.markdown('<div class="fixed-bottom-input">', unsafe_allow_html=True)
-    user_query = st.text_area("Ask your question", label_visibility="collapsed",
-                              placeholder="Wanna ask anything from the textbook..?",
-                              height=100)
-    st.markdown('</div>', unsafe_allow_html=True)
 
     st.session_state.messages.append({"role": "user", "content": user_query})
     with st.chat_message("user"):
