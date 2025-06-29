@@ -112,13 +112,28 @@ def store_chunks_if_pdf_changed(chunks, pdf_path):
     ids = [str(i) for i in range(len(clean_chunks))]
     collection.add(documents=clean_chunks, ids=ids)
 
-def get_top_chunks(query, top_k=7):
+
+def get_top_chunks(query, top_k=10, min_score=0.7):
     results = collection.query(
         query_texts=[query],
-        n_results=top_k
+        n_results=top_k,
+        include=["documents", "distances"]
     )
-    top_chunks = results.get("documents", [[]])[0]
-    return [str(doc) for doc in top_chunks if isinstance(doc, str) and doc.strip()]
+
+    documents = results.get("documents", [[]])[0]
+    distances = results.get("distances", [[]])[0]  # distances = similarity scores
+
+    filtered_chunks = []
+    for doc, score in zip(documents, distances):
+        if isinstance(doc, str) and doc.strip() and score >= min_score:
+            filtered_chunks.append(doc)
+
+    # If nothing meets the threshold, optionally return best available
+    if not filtered_chunks and documents:
+        filtered_chunks = [doc for doc in documents if isinstance(doc, str)]
+
+    return filtered_chunks
+
 
 def answer_question(query):
     # If it's a vague query, reuse the last context
@@ -131,7 +146,15 @@ def answer_question(query):
         # Save this context for vague follow-up
         st.session_state.last_context = context
 
-    messages = [{"role": "system", "content": "You are a teacher who answers questions from a textbook for students affiliated with APJ Abdul Kalam Technological University."}]
+    messages = [{"role": "system", "content":(
+        "You are a teacher who answers questions from a textbook pdf (actually a txt file provided for you) for students affiliated with APJ Abdul Kalam Technological University."
+         "You are a helpful teaching assistant for the subject 'Algorithm Thinking with Python'. "
+         "Only answer using the context provided. "
+         "Do not use your own knowledge."
+         "Only give basic python codes for the students and can go upto a advanced level if asked only."
+         "If the answer is not in the context, say 'The answer is not available in the textbook.' "
+         
+    )}]
     
     # Chat history
     for msg in st.session_state.messages:
