@@ -50,7 +50,7 @@ st.markdown("""
     h1{
         font-size: 23px !important;
         margin-left: 10px !important;
-        color: blue !important;
+        color: #FFFFCC !important;
         }
 </style>
 """, unsafe_allow_html=True)
