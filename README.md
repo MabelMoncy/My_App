@@ -1,5 +1,5 @@
 #  Algorithm Thinking with Python AI assistant
-#⚠️ Project is under development!!!
+# ⚠️ Project is under development!!!
 This app is specially build for KTU 1st year students of 2024 scheme. This web app help them to learn the new subject Algorithm Thinking with Python with the help of AI.
 (The pdf file can be changed and another pdf can be added. eg., You can add chemistry.pdf and ask questions based on that pdf.)
 Only edit the Python code and change the UI.
