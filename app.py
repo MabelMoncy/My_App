@@ -44,7 +44,7 @@ st.sidebar.markdown("""
 This web application is built to help students engage more deeply with the subject by allowing them to ask questions directly from the preloaded official textbook of Algorithm Thinking with Python.
 The AI-powered system retrieves relevant content from the textbook and generates clear, contextual answers. It's your personal study assistant for better understanding core concepts, code examples, and logic-based problems — all from one place.
 """)
-# Inject custom CSS for better mobile experience
+# Including the css 
 st.markdown("""
 <style>
     h1{
@@ -55,6 +55,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+#Loading the file and making it into chunks
 @st.cache_data
 def load_pdf_chunks(pdf_path):
     with open("ATP_Split.txt", "r", encoding="utf-8") as f:
@@ -106,7 +107,7 @@ def get_top_chunks(query, top_k=10, min_score=0.7):
         filtered_chunks = [doc for doc in documents if isinstance(doc, str)]
 
     return filtered_chunks
-
+#Try and except method
 try:
     def answer_question(query):
         # If it's a vague query, reuse the last context
@@ -118,7 +119,7 @@ try:
             context = "\n---\n".join(top_chunks)
             # Save this context for vague follow-up
             st.session_state.last_context = context
-
+            #Strict prompts for accurate results.
             messages = [{"role": "system", "content":(
             "You are a teacher who answers questions from a textbook pdf (actually a txt file provided for you) for students affiliated with APJ Abdul Kalam Technological University."
             "You are a helpful teaching assistant for the subject 'Algorithm Thinking with Python'. "
@@ -162,7 +163,7 @@ try:
         else:
             st.success("✅ Text Book already processed and up-to-date.")
 
-    # Chat history
+    # Chat history or temporary chat storage for session state managment
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
@@ -172,7 +173,7 @@ try:
   
 
     if user_query := st.chat_input("Ask your question here"):
-    # Container to hold the bottom input
+
         st.session_state.messages.append({"role": "user", "content": user_query})
         with st.chat_message("user"):
                 st.markdown(user_query)  
@@ -181,13 +182,12 @@ try:
             response_placeholder = st.empty()
             full_response = ""
 
-            # ✅ Spinner ends before streaming
-            with st.spinner("Thinking..."):
-                generator = answer_question(user_query)
+        with st.spinner("Thinking..."):
+            generator = answer_question(user_query)
 
-            for chunk in generator:
-                full_response += chunk
-                response_placeholder.markdown(full_response + "▌")
+        for chunk in generator:
+            full_response += chunk
+            response_placeholder.markdown(full_response + "▌")
 
             response_placeholder.markdown(full_response)
             st.session_state.messages.append({"role": "assistant", "content": full_response})
