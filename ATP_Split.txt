@@ -1,20 +1,24 @@
-Contents                                                        pages
- 1 TheWorldofProblem-solving 10
- 1.1 Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
- 1.2 Problem-Solving Strategies . . . . . . . . . . . . . . . . . . . . . 14
- 1.2.1 Importanceof Understanding Multiple Problem-Solving Strategies . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
- 1.2.2 TrialAndErrorProblem-SolvingStrategy. . . . . . . . . 15
- 1.2.3 AlgorithmicProblem-SolvingStrategy . . . . . . . . . . . 15
- 1.2.4 HeuristicProblem-SolvingStrategy. . . . . . . . . . . . . 16
- 1.2.5 Means-EndsAnalysisProblem-SolvingStrategy. . . . . . 16
- 1.2.6 Problemdecomposition . . . . . . . . . . . . . . . . . . . 18
- 1.2.7 OtherProblem-solvingStrategies . . . . . . . . . . . . . . 18
- 1.3 Algorithmicproblemsolvingwithcomputers . . . . . . . . . . . 20
- 1.3.1 TheProblemsolvingprocess . . . . . . . . . . . . . . . . 20
- 1.3.2 Acasestudy-TheDiscriminantcalculator . . . . . . . . 22
- 1.4 Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
- 1.5 Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
- 2 Algorithms,pseudocodes,andflowcharts 26
+# Contents
+
+ ## 1 The World of Problem-solving <!-- page: 10 -->
+
+    1.1 Introduction <!-- page: 10 -->
+    1.2 Problem-Solving Strategies <!-- page: 14 -->
+        1.2.1 Importanceof Understanding Multiple Problem-Solving Strategies <!-- page: 15 -->  
+        1.2.2 Trial And Error Problem-SolvingStrategy <!-- page: 15 -->
+        1.2.3 Algorithmic Problem-Solving Strategy  <!-- page: 15 -->
+        1.2.4 Heuristic Problem-Solving Strategy  <!-- page: 16 -->
+        1.2.5 Means-EndsAnalysis Problem-SolvingStrategy <!-- page: 16 --> 
+        1.2.6 Problem decomposition  <!-- page: 18 -->
+        1.2.7 Other Problem-solving Strategies <!-- page: 18 -->
+    1.3 Algorithmic problem solving with computers <!-- page: 20 -->
+        1.3.1 The Problem solving process <!-- page: 20 -->
+        1.3.2 A case study-The Discriminant calculator <!-- page: 22 -->
+    1.4 Conclusion <!-- page: 23 -->
+    1.5 Exercises <!-- page: 23 -->
+
+ ## 2 Algorithms, pseudocodes, and flowcharts <!-- page: 26 -->
+
  2.1 Algorithmsandpseudocodes . . . . . . . . . . . . . . . . . . . . 26
  2.1.1 Whypseudocodes? . . . . . . . . . . . . . . . . . . . . . . 27
  2.1.2 Constructsofapseudocode . . . . . . . . . . . . . . . . . 28
