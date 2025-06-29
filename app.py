@@ -45,22 +45,42 @@ This web application is built to help students engage more deeply with the subje
 The AI-powered system retrieves relevant content from the textbook and generates clear, contextual answers. It's your personal study assistant for better understanding core concepts, code examples, and logic-based problems — all from one place.
 """)
 # Inject custom CSS for better mobile experience
+st.markdown("""
+<style>
+/* Remove extra padding on small screens */
+@media screen and (max-width: 600px) {
+    .block-container {
+        padding: 1rem 1rem 120px 1rem !important;
+    }
+    textarea {
+        font-size: 16px !important;
+    }
+}
 
-"""def clean_text(text):
-    lines = text.split("\n")
-    cleaned_lines = []
+/* Fixed input container */
+.input-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 15px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    z-index: 999;
+}
 
-    for line in lines:
-        line = line.strip()
-        if (
-            len(line) < 30 or
-            re.match(r"^Page\s*\d+", line, re.I) or
-            re.search(r"Author|Copyright", line, re.I)
-        ):
-            continue
-        cleaned_lines.append(line)
+/* Chat area above the input */
+.chat-container {
+    max-height: 75vh;
+    overflow-y: auto;
+    padding-bottom: 100px;
+}
+h2{
+font-size: 30px;
+</style>
+""", unsafe_allow_html=True)
 
-    return "\n".join(cleaned_lines)"""
+
 
 @st.cache_data
 def load_pdf_chunks(pdf_path):
@@ -150,16 +170,19 @@ with st.spinner("Checking PDF Text book status..."):
 # Chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
-
+st.markdown('<div class="chat-container">', unsafe_allow_html=True)
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
+st.markdown('</div>', unsafe_allow_html=True) 
+
 if user_query := st.chat_input():
 # Container to hold the bottom input
-
+ st.markdown('<div class="input-container">', unsafe_allow_html=True)
     st.session_state.messages.append({"role": "user", "content": user_query})
     with st.chat_message("user"):
         st.markdown(user_query)
+      st.markdown('</div>', unsafe_allow_html=True)   
 
     with st.chat_message("assistant"):
         response_placeholder = st.empty()
