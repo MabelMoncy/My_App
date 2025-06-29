@@ -4,7 +4,7 @@ from pypdf import PdfReader
 import chromadb
 from chromadb.utils.embedding_functions import OpenAIEmbeddingFunction
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from openai import OpenAI
+from openai import OpenAI as OpAi
 from dotenv import load_dotenv
 import hashlib
 import pickle
@@ -15,7 +15,7 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Initialize OpenAI client
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = OpAi(api_key=OPENAI_API_KEY)
 
 # Configure ChromaDB
 embedding_function = OpenAIEmbeddingFunction(
@@ -31,7 +31,7 @@ collection = chroma_client.get_or_create_collection(
 # Streamlit UI config
 st.set_page_config(page_title="Alpy ATP bot")
 
-st.title("Algorithm Thinking - Python")
+st.title("Algorithm Thinking with Python")
 
 st.sidebar.title("About the Subject")
 st.sidebar.markdown("""
@@ -47,40 +47,13 @@ The AI-powered system retrieves relevant content from the textbook and generates
 # Inject custom CSS for better mobile experience
 st.markdown("""
 <style>
-/* Remove extra padding on small screens */
-@media screen and (max-width: 600px) {
-    .block-container {
-        padding: 1rem 1rem 120px 1rem !important;
-    }
-    textarea {
-        font-size: 16px !important;
-    }
-}
-
-/* Fixed input container */
-.input-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px 15px;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
-    z-index: 999;
-}
-
-/* Chat area above the input */
-.chat-container {
-    max-height: 75vh;
-    overflow-y: auto;
-    padding-bottom: 100px;
-}
-h2{
-font-size: 30px;
+    h1{
+        font-size: 23px !important;
+        margin-left: 10px !important;
+        color: blue !important;
+        }
 </style>
 """, unsafe_allow_html=True)
-
-
 
 @st.cache_data
 def load_pdf_chunks(pdf_path):
@@ -134,90 +107,90 @@ def get_top_chunks(query, top_k=10, min_score=0.7):
 
     return filtered_chunks
 
+try:
+    def answer_question(query):
+        # If it's a vague query, reuse the last context
+        vague_prompts = ["give an example", "explain more", "what about it", "why", "how","it"]
+        if any(query.lower().startswith(x) for x in vague_prompts):
+            context = st.session_state.get("last_context", "")
+        else:
+            top_chunks = get_top_chunks(query)
+            context = "\n---\n".join(top_chunks)
+            # Save this context for vague follow-up
+            st.session_state.last_context = context
 
-def answer_question(query):
-    # If it's a vague query, reuse the last context
-    vague_prompts = ["give an example", "explain more", "what about it", "why", "how","it"]
-    if any(query.lower().startswith(x) for x in vague_prompts):
-        context = st.session_state.get("last_context", "")
-    else:
-        top_chunks = get_top_chunks(query)
-        context = "\n---\n".join(top_chunks)
-        # Save this context for vague follow-up
-        st.session_state.last_context = context
+            messages = [{"role": "system", "content":(
+            "You are a teacher who answers questions from a textbook pdf (actually a txt file provided for you) for students affiliated with APJ Abdul Kalam Technological University."
+            "You are a helpful teaching assistant for the subject 'Algorithm Thinking with Python'. "
+            "Only answer using the context provided. "
+            "Do not use your own knowledge."
+            "Only give basic python codes for the students and can go upto a advanced level if asked only."
+            "If the answer is not in the context, say 'The answer is not available in the textbook.' " )}]
+        
+        # Chat history
+        for msg in st.session_state.messages:
+            messages.append({"role": msg["role"], "content": msg["content"]})
 
-    messages = [{"role": "system", "content":(
-        "You are a teacher who answers questions from a textbook pdf (actually a txt file provided for you) for students affiliated with APJ Abdul Kalam Technological University."
-         "You are a helpful teaching assistant for the subject 'Algorithm Thinking with Python'. "
-         "Only answer using the context provided. "
-         "Do not use your own knowledge."
-         "Only give basic python codes for the students and can go upto a advanced level if asked only."
-         "If the answer is not in the context, say 'The answer is not available in the textbook.' "
-         
-    )}]
-    
+        prompt = f"Answer the question using the context below.\nContext:\n{context}\n\nQuestion: {query}"
+        messages.append({"role": "user", "content": prompt})
+
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=messages,
+            stream=True
+        )
+
+        def stream_generator():
+            for chunk in response:
+                if chunk.choices and chunk.choices[0].delta and chunk.choices[0].delta.content:
+                    yield chunk.choices[0].delta.content
+
+        return stream_generator()
+    # Main flow
+    pdf_path = "ATP_Split.txt"
+    with st.spinner("Checking PDF Text book status..."):
+        current_hash = get_pdf_hash(pdf_path)
+        previous_hash = load_hash()
+
+        if current_hash != previous_hash:
+            st.info("🔄 Loading text book content and preparing...")
+            chunks = load_pdf_chunks(pdf_path)
+            store_chunks_if_pdf_changed(chunks, pdf_path)
+            save_hash(current_hash)
+            st.success("📚 Text Book has been successfully processed and stored.")
+        else:
+            st.success("✅ Text Book already processed and up-to-date.")
+
     # Chat history
-    for msg in st.session_state.messages:
-        messages.append({"role": msg["role"], "content": msg["content"]})
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
 
-    prompt = f"Answer the question using the context below.\nContext:\n{context}\n\nQuestion: {query}"
-    messages.append({"role": "user", "content": prompt})
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+  
 
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=messages,
-        stream=True
-    )
+    if user_query := st.chat_input("Ask your question here"):
+    # Container to hold the bottom input
+        st.session_state.messages.append({"role": "user", "content": user_query})
+        with st.chat_message("user"):
+                st.markdown(user_query)  
 
-    def stream_generator():
-        for chunk in response:
-            if chunk.choices and chunk.choices[0].delta and chunk.choices[0].delta.content:
-                yield chunk.choices[0].delta.content
+        with st.chat_message("assistant"):
+            response_placeholder = st.empty()
+            full_response = ""
 
-    return stream_generator()
-# Main flow
-pdf_path = "ATP_Split.txt"
-with st.spinner("Checking PDF Text book status..."):
-    current_hash = get_pdf_hash(pdf_path)
-    previous_hash = load_hash()
+            # ✅ Spinner ends before streaming
+            with st.spinner("Thinking..."):
+                generator = answer_question(user_query)
 
-    if current_hash != previous_hash:
-        st.info("🔄 Loading text book content and preparing...")
-        chunks = load_pdf_chunks(pdf_path)
-        store_chunks_if_pdf_changed(chunks, pdf_path)
-        save_hash(current_hash)
-        st.success("📚 Text Book has been successfully processed and stored.")
-    else:
-        st.success("✅ Text Book already processed and up-to-date.")
+            for chunk in generator:
+                full_response += chunk
+                response_placeholder.markdown(full_response + "▌")
 
-# Chat history
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-st.markdown('<div class="chat-container">', unsafe_allow_html=True)
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-st.markdown('</div>', unsafe_allow_html=True) 
+            response_placeholder.markdown(full_response)
+            st.session_state.messages.append({"role": "assistant", "content": full_response})
 
-if user_query := st.chat_input("Ask your question here"):
-# Container to hold the bottom input
-    st.markdown('<div class="input-container">', unsafe_allow_html=True)
-    st.session_state.messages.append({"role": "user", "content": user_query})
-    with st.chat_message("user"):
-            st.markdown(user_query)
-            st.markdown('</div>', unsafe_allow_html=True)   
+except Exception as e:
+    st.error(f"⚠️ Oops! Something went wrong. Please try again in a moment or comeback later.")
 
-    with st.chat_message("assistant"):
-        response_placeholder = st.empty()
-        full_response = ""
-
-        # ✅ Spinner ends before streaming
-        with st.spinner("Thinking..."):
-            generator = answer_question(user_query)
-
-        for chunk in generator:
-            full_response += chunk
-            response_placeholder.markdown(full_response + "▌")
-
-        response_placeholder.markdown(full_response)
-        st.session_state.messages.append({"role": "assistant", "content": full_response})
