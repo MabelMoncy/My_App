@@ -125,7 +125,8 @@ try:
             "Only answer using the context provided. "
             "Do not use your own knowledge."
             "Only give basic python codes for the students and can go upto a advanced level if asked only."
-            "If the answer is not in the context, say 'The answer is not available in the textbook.' " )}]
+            "If the user asks for a code example, only provide code that is explicitly found in the provided context from the textbook. Do not generate your own code unless no code appears in the context. If no code is present, you may create one."
+            "If the answer is not in the context, say 'please refer the text book' " )}
         
         # Chat history
         for msg in st.session_state.messages:
