@@ -247,6 +247,6 @@ try:
                 "content": full_response,
                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             })
-except Exception as e:
+except:
     st.error(f"Oops! Something went wrong. Please try again.")
     st.stop()
