@@ -190,7 +190,7 @@ def answer_question(query):
         return iter(["An error occurred while generating the response. Please try again."])
 
 # Main flow
-pdf_path = "ATP_split.txt"
+pdf_path = "ATP_Split.txt"
 with st.spinner("Checking PDF status..."):
     current_hash = get_pdf_hash(pdf_path)
     previous_hash = load_hash()
