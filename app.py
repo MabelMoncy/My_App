@@ -11,7 +11,6 @@ import pickle
 import re
 from datetime import datetime
 
-try:
     # Load environment variables
     load_dotenv()
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -247,7 +246,5 @@ try:
                 "content": full_response,
                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             })
-except Exception as e:
-    st.error(f"Oops! Something went wrong: {str(e)}")
-    st.stop()
+
 
