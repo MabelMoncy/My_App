@@ -111,8 +111,7 @@ def load_pdf_chunks(pdf_path):
         with open(pdf_path, "rb") as file:  # Use binary mode "rb"
             pdf = PdfReader(file)
             for page in pdf.pages:
-                extracted_text = page.extract_text() or ""
-                raw_text += extracted_text
+                raw_text += page.extract_text() or ""
 
         if not raw_text.strip():
             raise ValueError("No text could be extracted from the PDF.")
