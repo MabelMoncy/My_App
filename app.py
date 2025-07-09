@@ -104,7 +104,7 @@ def clean_text(text):
     return "\n".join(cleaned_lines)
 
 
-@st.cache_data
+@st.cache_data(show_spinner=False)
 def load_pdf_chunks(pdf_path):
     raw_text = ""
     try:
