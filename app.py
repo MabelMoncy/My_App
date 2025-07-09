@@ -103,17 +103,28 @@ def clean_text(text):
         cleaned_lines.append(line)
     return "\n".join(cleaned_lines)
 
+
 @st.cache_data
 def load_pdf_chunks(pdf_path):
-    with open(pdf_path, "r", encoding="utf-8") as f:
-        raw_text = f.read()
-        pages = raw_text.split("[Page ")[1:]
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=100
-    )
-    chunks = splitter.split_text(raw_text)
-    return chunks
+    raw_text = ""
+    try:
+        with open(pdf_path, "rb") as file:  # Use binary mode "rb"
+            pdf = PdfReader(file)
+            for page in pdf.pages:
+                extracted_text = page.extract_text() or ""
+                raw_text += extracted_text
+
+        if not raw_text.strip():
+            raise ValueError("No text could be extracted from the PDF.")
+
+        splitter = RecursiveCharacterTextSplitter(
+            chunk_size=500,
+            chunk_overlap=100
+        )
+        chunks = splitter.split_text(raw_text)
+        return chunks
+    except Exception as e:
+        raise Exception(f"Error loading PDF: {str(e)}")
 
 def get_pdf_hash(pdf_path):
     with open(pdf_path, "rb") as f:
@@ -190,7 +201,7 @@ def answer_question(query):
         return iter(["An error occurred while generating the response. Please try again."])
 
 # Main flow
-pdf_path = "ATP_Split.txt"
+pdf_path = "pdfs/ATP_split.pdf"
 with st.spinner("Checking PDF status..."):
     current_hash = get_pdf_hash(pdf_path)
     previous_hash = load_hash()
