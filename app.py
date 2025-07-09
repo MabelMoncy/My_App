@@ -240,9 +240,4 @@ if user_query := st.chat_input("What do you want to know?"):
                 response_placeholder.markdown(full_response + "▌")
             response_placeholder.markdown(full_response)
         
-        # Save assistant response to history with timestamp
-        st.session_state.messages.append({
-            "role": "assistant",
-            "content": full_response,
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        })
+       
