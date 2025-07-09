@@ -197,19 +197,26 @@ with st.spinner("Checking PDF status..."):
     if current_hash != previous_hash:
         st.info("🔄 Loading PDF content and preparing...")
         chunks = load_pdf_chunks(pdf_path)
+        st.info(f"✅ PDF loaded successfully.")
         store_chunks_if_pdf_changed(chunks, pdf_path)
         save_hash(current_hash)
         st.success("📚 PDF has been successfully processed and stored.")
     else:
-        st.markdown("✅ You are good to go..")
+        st.success("✅ PDF already processed and up-to-date.")
 
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
+# Add a button to clear chat history
+if st.button("Start New Conversation"):
+    st.session_state.messages = []
+
 # Display past messages with timestamps
 for idx, message in enumerate(st.session_state.messages):
     with st.chat_message(message["role"]):
+        timestamp = message.get("timestamp", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        st.markdown(f"{message['content']}")
 
 # Handle user input
 if user_query := st.chat_input("What do you want to know?"):
@@ -217,6 +224,7 @@ if user_query := st.chat_input("What do you want to know?"):
     st.session_state.messages.append({
         "role": "user",
         "content": user_query,
+        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     })
     with st.chat_message("user"):
         st.markdown(user_query)
@@ -235,4 +243,5 @@ if user_query := st.chat_input("What do you want to know?"):
         st.session_state.messages.append({
             "role": "assistant",
             "content": full_response,
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         })
