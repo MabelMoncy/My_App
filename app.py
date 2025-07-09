@@ -232,7 +232,6 @@ if user_query := st.chat_input("What do you want to know?"):
         full_response = ""
         response_placeholder = st.empty()
         with st.spinner("Thinking..."):
-            time.sleep(2)
             for chunk in answer_question(user_query):
                 full_response += chunk
                 response_placeholder.markdown(full_response + "▌")
