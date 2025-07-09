@@ -215,7 +215,7 @@ if st.button("Clear Chat History"):
 # Display past messages with timestamps
 for idx, message in enumerate(st.session_state.messages):
     with st.chat_message(message["role"]):
-        st.markdown(f"**[{timestamp}]** {message['content']}")
+        st.markdown(f"{message['content']}")
 
 # Handle user input
 if user_query := st.chat_input("What do you want to know?"):
@@ -232,6 +232,7 @@ if user_query := st.chat_input("What do you want to know?"):
         full_response = ""
         response_placeholder = st.empty()
         with st.spinner("Thinking..."):
+            time.sleep(2)
             for chunk in answer_question(user_query):
                 full_response += chunk
                 response_placeholder.markdown(full_response + "▌")
