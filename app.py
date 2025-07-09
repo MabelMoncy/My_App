@@ -190,7 +190,7 @@ def answer_question(query):
         return iter(["An error occurred while generating the response. Please try again."])
 
 # Main flow
-pdf_path = "ATP_Split.txt"
+pdf_path = "ATP_split.txt"
 with st.spinner("Checking PDF status..."):
     current_hash = get_pdf_hash(pdf_path)
     previous_hash = load_hash()
@@ -199,23 +199,17 @@ with st.spinner("Checking PDF status..."):
         chunks = load_pdf_chunks(pdf_path)
         store_chunks_if_pdf_changed(chunks, pdf_path)
         save_hash(current_hash)
-        st.success("📚 PDF has been successfully loaded and stored.")
+        st.success("📚 PDF has been successfully processed and stored.")
     else:
-        st.success("✅ PDF already processed and up-to-date.")
+        st.markdown("✅ You are good to go..")
 
 # Initialize chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Add a button to clear chat history
-if st.button("Clear Chat History"):
-    st.session_state.messages = []
-    st.success("Chat history cleared.")
-
 # Display past messages with timestamps
 for idx, message in enumerate(st.session_state.messages):
     with st.chat_message(message["role"]):
-        st.markdown(f"{message['content']}")
 
 # Handle user input
 if user_query := st.chat_input("What do you want to know?"):
@@ -237,4 +231,8 @@ if user_query := st.chat_input("What do you want to know?"):
                 response_placeholder.markdown(full_response + "▌")
             response_placeholder.markdown(full_response)
         
-       
+        # Save assistant response to history with timestamp
+        st.session_state.messages.append({
+            "role": "assistant",
+            "content": full_response,
+        })
