@@ -208,12 +208,11 @@ with st.spinner("Checking PDF status..."):
     if current_hash != previous_hash:
         st.info("🔄 Loading PDF content and preparing...")
         chunks = load_pdf_chunks(pdf_path)
-        st.info(f"✅ PDF loaded successfully.")
         store_chunks_if_pdf_changed(chunks, pdf_path)
         save_hash(current_hash)
         st.success("📚 PDF has been successfully processed and stored.")
     else:
-        st.success("✅ PDF already processed and up-to-date.")
+        st.markdown("✅ You are ready to ask!")
 
 # Initialize chat history
 if "messages" not in st.session_state:
